@@ -1,6 +1,6 @@
 export default async function handler(req, res) {
   // CORS設定 (あなたのGitHub Pagesのドメインに合わせてください)
-  res.setHeader('Access-Control-Allow-Origin', 'https://<YOUR_GITHUB_USERNAME>.github.io');
+  res.setHeader('Access-Control-Allow-Origin', 'https://y2ueno.github.io/sandoichi_v4_kanbe_SR/');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
