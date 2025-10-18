@@ -52,8 +52,21 @@ async function sendDataToServer(email, qrData) {
     } catch (error) {
         resultsDisplay.textContent = 'サーバー通信エラーです。';
         resultsDisplay.className = 'error';
-    } finally {
-        // 5秒後に再度スキャンを開始する
-        setTimeout(() => location.reload(), 5000);
-    }
+    // scanner.js の sendDataToServer 関数内 finally ブロック
+} finally {
+    // Glideアプリに戻るためのURLを取得
+    const appUrlParams = new URLSearchParams(window.location.search);
+    const glideAppUrl = appUrlParams.get('glide_app_url'); // Glideが渡すURLパラメータ
+
+    // 5秒後にGlideアプリに戻る
+    setTimeout(() => {
+        if (glideAppUrl) {
+            window.location.href = decodeURIComponent(glideAppUrl);
+        } else {
+            // glide_app_urlがない場合のフォールバック（例: アプリのトップパス）
+            // お客様のGlideアプリのベースURLに合わせて調整してください
+            window.location.href = 'glide://home'; // または 'https://yourapp.glideapp.io/your_tab_path'
+        }
+    }, 5000);
+}
 }
