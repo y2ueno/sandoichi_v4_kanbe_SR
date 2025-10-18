@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
 async function sendDataToServer(email, qrData) {
     const resultsDisplay = document.getElementById('qr-reader-results');
     // ↓↓↓↓↓↓【最重要】Part 3.4でVercelのURLに書き換える↓↓↓↓↓↓
-    const serverUrl = 'https://sandoichi-v4-kanbe-sr.vercel.app/'; 
+    const serverUrl = 'https://sandoichi-v4-kanbe-sr.vercel.app/api';
 
     try {
         const response = await fetch(serverUrl, {
